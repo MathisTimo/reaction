@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reaction test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/element_our/md/20180427/md_5ae2bfcc6832a.png">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+    
+    var turn = 0;
+    var arr = [];
+    var results = [];
+        
+    function play(){
+        if (turn < 5){
+            red();
+            console.log("Trun nb" + turn)
+        }
+        else{
+            end();
+        }
+    }
+    
+    function red(){
+        console.log("red")
+        $( ".generate" ).remove();
+        $('#dbody').append('<div class="generate" id="redscreen" onclick="toosoon()"></div>');
+        var x = Math.floor((Math.random() * 4000) + 2000);
+        setTimeout(blue, x);
+    }
+        
+    function blue(){
+        console.log("blue")
+        $( ".generate" ).remove();
+        $('#dbody').append('<div class="generate" id="bluescreen" onclick="stop()"></div>');
+        start();
+    }
+        
+    function start(){
+    console.log("start")
+	time_avant= Date.now();
+	timer=setInterval(function() {time_ms=(Date.now()-time_avant);time_ms=(time_ms+"");});   
+    }   
+    
+    function stop(){
+        console.log("stop")
+        clearInterval(timer);
+        turn++;
+        $( ".generate" ).remove();
+        $('#dbody').append('<div class="generate" id="stopscreen" onclick="play()"><p id="ms">000</p></div>');
+        document.getElementById("ms").innerHTML=time_ms;document;
+        arr.push(time_ms);
+    }
+
+    function toosoon(){
+        $( ".generate" ).remove();
+        $('#dbody').append('<div class="generate" id="toosoon" onclick="play()"><p id="ms">000</p></div>');
+    }
+        
+    function end(){
+        console.log('end');
+        $( ".generate" ).remove();
+        moyenne()
+    }
+        
+    function moyenne(){
+        for (var i=0,l=arr.length;i<l;i++) 
+            results.push(+arr[i]);
+        var moy = Math.round((results[0]+results[1]+results[2]+results[3]+results[4])/5);
+        console.log(moy);
+        $('#dbody').append('<div id="endscreen"><p id="moy">000</p></div>');
+        document.getElementById("moy").innerHTML=moy;document;
+    }
+    
+    </script>
+  </head>
+  <body id="dbody">
+      <div class="generate" id=ready onclick="play()">
+        <p class="bigtext">Click for stating the test</p>
+      </div>      
+  </body>
+</html>

@@ -1,0 +1,90 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500,900');
+
+
+body{
+    background-color: #101010;
+}
+
+.bigtext{
+    color: white;
+    font-family: Roboto;
+    
+}
+
+#zone{
+    height: 300px;
+    background-color: black;
+}
+
+#zone2{
+    height: 300px;
+    background-color: #3b3b3b;
+}
+
+#ms{
+    color: aliceblue;
+}
+
+
+#ready {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgb(31, 31, 31);
+    z-index: 7;
+  }
+
+#redscreen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(252, 26, 70, 0.39);
+    z-index: 8;
+}
+
+#bluescreen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(25, 131, 255, 0.39);
+    z-index: 9;
+}
+#stopscreen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(181, 181, 33, 0.39);
+    z-index: 9;
+}
+#start {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.7);
+    z-index: 10;
+  }
+
+#stopoverlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+  display: none;}
